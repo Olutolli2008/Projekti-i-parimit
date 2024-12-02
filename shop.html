@@ -74,12 +74,18 @@
             display: inline-block;
             width: 30%;
             margin: 1.5rem;
-            padding: 20px;
+            padding: 30px;
             background-color: #fff;
             border: 1px solid #ddd;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
             text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
         }
 
         .product h3 {
@@ -94,19 +100,32 @@
 
         .product img {
             width: 100%;
-            max-width: 200px; /* Limit the size of the images */
-            height: auto; /* Maintain the aspect ratio */
-            margin-bottom: 15px; /* Add space below the image */
+            max-width: 350px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .size-options {
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+
+        .size-options select {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 14px;
         }
 
         button {
-            padding: 10px 20px;
+            padding: 15px 30px;
             background-color: #333;
             color: white;
             border: none;
             cursor: pointer;
             border-radius: 5px;
             margin-top: 15px;
+            font-size: 16px;
         }
 
         button:hover {
@@ -146,6 +165,16 @@
                 <h3>Product 1</h3>
                 <p>Description of Product 1</p>
                 <p>$10.00</p>
+                
+                <!-- Size selection -->
+                <div class="size-options">
+                    <select id="size-product1">
+                        <option value="S">Small</option>
+                        <option value="M">Medium</option>
+                        <option value="L">Large</option>
+                        <option value="XL">X-Large</option>
+                    </select>
+                </div>
                 <button onclick="addToCart(1, 'Product 1', 10)">Add to Cart</button>
             </div>
 
@@ -154,6 +183,16 @@
                 <h3>Product 2</h3>
                 <p>Description of Product 2</p>
                 <p>$20.00</p>
+                
+                <!-- Size selection -->
+                <div class="size-options">
+                    <select id="size-product2">
+                        <option value="S">Small</option>
+                        <option value="M">Medium</option>
+                        <option value="L">Large</option>
+                        <option value="XL">X-Large</option>
+                    </select>
+                </div>
                 <button onclick="addToCart(2, 'Product 2', 20)">Add to Cart</button>
             </div>
 
@@ -162,10 +201,19 @@
                 <h3>Product 3</h3>
                 <p>Description of Product 3</p>
                 <p>$30.00</p>
+                
+                <!-- Size selection -->
+                <div class="size-options">
+                    <select id="size-product3">
+                        <option value="S">Small</option>
+                        <option value="M">Medium</option>
+                        <option value="L">Large</option>
+                        <option value="XL">X-Large</option>
+                    </select>
+                </div>
                 <button onclick="addToCart(3, 'Product 3', 30)">Add to Cart</button>
             </div>
 
-            <!-- Add more products here -->
         </div>
     </section>
 
@@ -188,15 +236,17 @@
 
         // Function to add item to cart
         function addToCart(productId, productName, productPrice) {
+            const selectedSize = document.getElementById(`size-product${productId}`).value;
             const item = {
                 id: productId,
                 name: productName,
-                price: productPrice
+                price: productPrice,
+                size: selectedSize
             };
             cart.push(item);
             localStorage.setItem('cart', JSON.stringify(cart));
             updateCartDisplay();
-            alert(`${productName} added to cart!`);
+            alert(`${productName} (Size: ${selectedSize}) added to cart!`);
         }
 
         // Call updateCartDisplay() on page load to reflect the correct cart count
@@ -204,6 +254,8 @@
     </script>
 </body>
 </html>
+
+
 
 
 
