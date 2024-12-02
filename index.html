@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Website</title>
+    <title>Home | My Website</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -60,106 +60,124 @@
             padding: 0 20px;
         }
 
-        .service {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            padding: 20px;
-            margin: 15px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        h2 {
+            color: #333;
+            margin-bottom: 30px;
         }
 
-        .service h3 {
+        .intro-text {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        .service-card {
+            display: inline-block;
+            width: 30%;
+            margin: 1.5rem;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .service-card h3 {
             color: #333;
         }
 
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            max-width: 500px;
-            margin: 0 auto;
+        .service-card p {
+            color: #666;
+            margin-top: 10px;
         }
 
-        .contact-form input,
-        .contact-form textarea {
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-
-        .contact-form button {
-            padding: 12px;
+        .service-card button {
+            padding: 10px 20px;
             background-color: #333;
             color: white;
             border: none;
             cursor: pointer;
             border-radius: 5px;
+            margin-top: 15px;
         }
 
-        .contact-form button:hover {
+        .service-card button:hover {
             background-color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .service-card {
+                width: 100%;
+                margin: 1rem 0;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to My Website</h1>
+        <h1>Welcome to Our Website</h1>
     </header>
 
     <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="shop.html">Shop</a>
+        <a href="contact.html">Contact</a>
     </nav>
 
-    <section id="home">
+    <section>
         <div class="container">
-            <h2>Home</h2>
-            <p>This is the homepage of my website. Enjoy your visit!</p>
+            <h2>Welcome to Our Online Space</h2>
+            <p class="intro-text">We're here to offer you amazing products and services. Explore what we have to offer below!</p>
         </div>
     </section>
 
-    <section id="about">
-        <div class="container">
-            <h2>About</h2>
-            <p>
-                Welcome to our website! We are a dedicated team of professionals passionate about providing high-quality services. 
-                Our mission is to help our clients achieve their goals with the utmost precision and care. Whether you're an individual or a business, 
-                we are here to support you every step of the way.
-            </p>
-        </div>
-    </section>
-
-    <section id="services">
+    <!-- Services Section -->
+    <section>
         <div class="container">
             <h2>Our Services</h2>
-            <div class="service">
+            <p class="intro-text">From web design to digital marketing, we offer a variety of services to cater to your business needs.</p>
+
+            <div class="service-card">
                 <h3>Web Design</h3>
-                <p>We create stunning and functional websites that look great on any device. Our web design services ensure your online presence stands out.</p>
+                <p>Create beautiful, responsive websites that engage your audience.</p>
+                <button>Learn More</button>
             </div>
-            <div class="service">
-                <h3>SEO Optimization</h3>
-                <p>Increase your visibility on search engines and attract more traffic with our proven SEO strategies tailored to your needs.</p>
+
+            <div class="service-card">
+                <h3>SEO Services</h3>
+                <p>Improve your website's ranking on search engines and drive more traffic.</p>
+                <button>Learn More</button>
             </div>
-            <div class="service">
-                <h3>Content Writing</h3>
-                <p>Our team of skilled writers creates high-quality content that engages your audience and helps improve your SEO rankings.</p>
+
+            <div class="service-card">
+                <h3>Marketing</h3>
+                <p>Get your brand noticed with our custom marketing solutions.</p>
+                <button>Learn More</button>
             </div>
         </div>
     </section>
 
-    <section id="contact">
+    <!-- Shop Section -->
+    <section>
+        <div class="container">
+            <h2>Shop with Us</h2>
+            <p class="intro-text">Explore our exclusive collection of high-quality products.</p>
+            <a href="shop.html">
+                <button>Visit Shop</button>
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section>
         <div class="container">
             <h2>Contact Us</h2>
-            <p>We'd love to hear from you! Please fill out the form below to get in touch with us.</p>
-            <div class="contact-form">
-                <input type="text" id="name" placeholder="Your Name" required>
-                <input type="email" id="email" placeholder="Your Email" required>
-                <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
-                <button type="submit">Send Message</button>
-            </div>
+            <p class="intro-text">Have questions or need support? Get in touch with us.</p>
+            <a href="contact.html">
+                <button>Contact Us</button>
+            </a>
         </div>
     </section>
 
@@ -168,4 +186,5 @@
     </footer>
 </body>
 </html>
+
 
