@@ -6,10 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Shop | My Website</title>
     <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
             background-color: #f4f4f4;
         }
 
@@ -62,10 +68,9 @@
 
         h2 {
             color: #333;
-            margin-bottom: 30px;
         }
 
-        .product-card {
+        .product {
             display: inline-block;
             width: 30%;
             margin: 1.5rem;
@@ -77,28 +82,17 @@
             text-align: center;
         }
 
-        .product-card img {
-            width: 100%;
-            height: auto;
-            border-radius: 5px;
-        }
-
-        .product-card h3 {
+        .product h3 {
+            margin-top: 10px;
             color: #333;
-            margin-top: 15px;
         }
 
-        .product-card p {
-            color: #666;
+        .product p {
             margin: 10px 0;
+            color: #666;
         }
 
-        .product-card span {
-            font-size: 1.2rem;
-            color: #333;
-        }
-
-        .product-card button {
+        button {
             padding: 10px 20px;
             background-color: #333;
             color: white;
@@ -108,12 +102,12 @@
             margin-top: 15px;
         }
 
-        .product-card button:hover {
+        button:hover {
             background-color: #555;
         }
 
         @media (max-width: 768px) {
-            .product-card {
+            .product {
                 width: 100%;
                 margin: 1rem 0;
             }
@@ -122,7 +116,7 @@
 </head>
 <body>
     <header>
-        <h1>Shop with Us</h1>
+        <h1>Welcome to Our Shop</h1>
     </header>
 
     <nav>
@@ -135,40 +129,69 @@
 
     <section>
         <div class="container">
-            <h2>Discover Our Exclusive Products</h2>
-            <p>Browse through our carefully curated collection of products designed to bring you quality and style. Find your next favorite item below!</p>
-
-            <!-- Product Cards -->
-            <div class="product-card">
-                <img src="veshjet/veshja1.png" alt="Product 1">
+            <h2>Our Products</h2>
+            
+            <div class="product">
                 <h3>Product 1</h3>
-                <p>A short description of product 1 goes here. It's a great item for any occasion!</p>
-                <span>$29.99</span>
-                <button>Add to Cart</button>
+                <p>Description of Product 1</p>
+                <p>$10.00</p>
+                <button onclick="addToCart(1, 'Product 1', 10)">Add to Cart</button>
             </div>
 
-            <div class="product-card">
-                <img src="veshjet/veshja2.png" alt="Product 2">
+            <div class="product">
                 <h3>Product 2</h3>
-                <p>This is another awesome product that you'll love! Perfect for everyday use.</p>
-                <span>$49.99</span>
-                <button>Add to Cart</button>
+                <p>Description of Product 2</p>
+                <p>$20.00</p>
+                <button onclick="addToCart(2, 'Product 2', 20)">Add to Cart</button>
             </div>
 
-            <div class="product-card">
-                <img src="veshjet/veshja3.png" alt="Product 3">
+            <div class="product">
                 <h3>Product 3</h3>
-                <p>Product 3 is a top choice for anyone looking for quality and style.</p>
-                <span>$39.99</span>
-                <button>Add to Cart</button>
+                <p>Description of Product 3</p>
+                <p>$30.00</p>
+                <button onclick="addToCart(3, 'Product 3', 30)">Add to Cart</button>
             </div>
+
+            <!-- Add more products here -->
         </div>
     </section>
 
     <footer>
         <p>&copy; 2024 My Website | All Rights Reserved</p>
     </footer>
+
+    <script>
+        // Initialize the cart from localStorage or an empty array if no cart is saved
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Function to update cart display
+        function updateCartDisplay() {
+            // Update cart count if needed
+            const cartCount = document.getElementById('cart-count');
+            if (cartCount) {
+                cartCount.textContent = cart.length;
+            }
+        }
+
+        // Function to add item to cart
+        function addToCart(productId, productName, productPrice) {
+            const item = {
+                id: productId,
+                name: productName,
+                price: productPrice
+            };
+            cart.push(item);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartDisplay();
+            alert(`${productName} added to cart!`);
+        }
+
+        // Call updateCartDisplay() on page load to reflect the correct cart count
+        window.onload = updateCartDisplay;
+    </script>
 </body>
 </html>
+
+
 >
 
