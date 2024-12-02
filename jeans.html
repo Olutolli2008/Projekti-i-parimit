@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Casual Jeans | My Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+            padding: 0.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        section {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .product-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 30px;
+        }
+
+        .product-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .product-image img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+        }
+
+        .product-info {
+            flex: 2;
+            text-align: left;
+            max-width: 500px;
+        }
+
+        .product-info .description {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .product-info select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+        }
+
+        .black-button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+
+        .black-button:hover {
+            background-color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .product-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .product-info {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Casual Jeans</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="products.html">Shop</a>
+        <a href="contact.html">Contact</a>
+        <a href="shop.html">Shop</a>
+    </nav>
+
+    <section>
+        <div class="container">
+            <h2>Casual Jeans</h2>
+            <div class="product-container">
+                <!-- Product Image -->
+                <div class="product-image">
+                    <img src="jeans.jpg" alt="Casual Jeans">
+                </div>
+
+                <!-- Product Info -->
+                <div class="product-info">
+                    <p class="description">These casual jeans are perfect for a laid-back, stylish look. Crafted from durable denim, they provide both comfort and functionality. Available in multiple sizes and washes.</p>
+                    <p class="price">$35.00</p>
+
+                    <!-- Size Selection -->
+                    <label for="size">Select Size:</label>
+                    <select id="size" name="size">
+                        <option value="s">Small</option>
+                        <option value="m">Medium</option>
+                        <option value="l">Large</option>
+                        <option value="xl">Extra Large</option>
+                    </select>
+
+                    <!-- Color Selection -->
+                    <label for="color">Select Color:</label>
+                    <select id="color" name="color">
+                        <option value="lightblue">Light Blue</option>
+                        <option value="darkblue">Dark Blue</option>
+                        <option value="black">Black</option>
+                        <option value="grey">Grey</option>
+                    </select>
+
+                    <!-- Add to Cart Button -->
+                    <button class="black-button">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 My Website | All Rights Reserved</p>
+    </footer>
+</body>
+</html>
