@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Casual T-shirt | My Website</title>
+    <title>Shop | My Website</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -65,41 +65,42 @@
             margin-bottom: 30px;
         }
 
-        .product-container {
+        .product-carousel {
             display: flex;
-            justify-content: center;
-            gap: 30px;
-            padding: 30px;
-        }
-
-        .product-image {
-            flex: 1;
-            text-align: center;
-        }
-
-        .product-image img {
-            width: 100%;
-            max-width: 400px;
-            height: auto;
-        }
-
-        .product-info {
-            flex: 2;
-            text-align: left;
-            max-width: 500px;
-        }
-
-        .product-info .description {
-            font-size: 1.2rem;
-            color: #555;
-            margin-bottom: 20px;
-        }
-
-        .product-info select {
-            width: 100%;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            gap: 20px;
             padding: 10px;
+            position: relative;
+        }
+
+        .product-carousel::-webkit-scrollbar {
+            display: none; /* Hide scrollbar */
+        }
+
+        .product {
+            flex: 0 0 auto;
+            background-color: white;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+            width: 250px;
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .product h3 {
+            color: #333;
             margin: 10px 0;
-            border: 1px solid #ccc;
+        }
+
+        .product p {
+            color: #555;
         }
 
         .black-button {
@@ -109,80 +110,127 @@
             border: none;
             cursor: pointer;
             border-radius: 5px;
-            margin-top: 15px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
         }
 
         .black-button:hover {
             background-color: #555;
         }
 
-        @media (max-width: 768px) {
-            .product-container {
-                flex-direction: column;
-                text-align: center;
-            }
+        /* Circular buttons for navigation */
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: white;
+            border: 1px solid #ddd;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
 
-            .product-info {
-                max-width: 100%;
+        .carousel-button:hover {
+            background-color: #f4f4f4;
+        }
+
+        .carousel-button.left {
+            left: 10px;
+        }
+
+        .carousel-button.right {
+            right: 10px;
+        }
+
+        .carousel-button svg {
+            width: 20px;
+            height: 20px;
+            fill: #333;
+        }
+
+        @media (max-width: 768px) {
+            .product-carousel {
+                justify-content: center;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Casual T-shirt</h1>
+        <h1>Shop Our Collection</h1>
     </header>
 
     <nav>
         <a href="index.html">Home</a>
         <a href="products.html">Shop</a>
         <a href="contact.html">Contact</a>
-        <a href="shop.html">Shop</a>
+        <a href="about.html">About Us</a>
     </nav>
 
     <section>
         <div class="container">
-            <h2>Casual T-shirt</h2>
-            <div class="product-container">
-                <!-- Product Image -->
-                <div class="product-image">
-                    <img src="shirt.jpg" alt="Casual T-shirt">
+            <h2>Our Products</h2>
+            <div class="product-carousel" id="carousel">
+                <!-- Product 1 -->
+                <div class="product">
+                    <img src="nike1.jpg" alt="Nike Air Force 1 Flyknit 2.0">
+                    <h3>Nike Air Force 1 Flyknit 2.0</h3>
+                    <p>$120.00</p>
+                    <a href="airforce.html" class="black-button">View Details</a>
                 </div>
 
-                <!-- Product Info -->
-                <div class="product-info">
-                    <p class="description">This casual T-shirt is perfect for everyday wear. Made from soft cotton, it offers comfort and style. Available in multiple colors and sizes.</p>
-                    <p class="price">$20.00</p>
+                <!-- Product 2 -->
+                <div class="product">
+                    <img src="nike2.jpg" alt="Nike Dunk Low">
+                    <h3>Nike Dunk Low</h3>
+                    <p>$110.00</p>
+                    <a href="dunklow.html" class="black-button">View Details</a>
+                </div>
 
-                    <!-- Size Selection -->
-                    <label for="size">Select Size:</label>
-                    <select id="size" name="size">
-                        <option value="s">Small</option>
-                        <option value="m">Medium</option>
-                        <option value="l">Large</option>
-                        <option value="xl">Extra Large</option>
-                    </select>
-
-                    <!-- Color Selection -->
-                    <label for="color">Select Color:</label>
-                    <select id="color" name="color">
-                        <option value="red">Red</option>
-                        <option value="blue">Blue</option>
-                        <option value="green">Green</option>
-                        <option value="black">Black</option>
-                    </select>
-
-                    <!-- Add to Cart Button -->
-                    <button class="black-button">Add to Cart</button>
+                <!-- Product 3 -->
+                <div class="product">
+                    <img src="nike3.jpg" alt="Nike Air Max 1 '87">
+                    <h3>Nike Air Max 1 '87</h3>
+                    <p>$130.00</p>
+                    <a href="airmax.html" class="black-button">View Details</a>
                 </div>
             </div>
+
+            <!-- Left and Right Buttons -->
+            <button class="carousel-button left" onclick="scrollLeft()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/>
+                </svg>
+            </button>
+            <button class="carousel-button right" onclick="scrollRight()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M8.59 16.59L13.17 12l-4.58-4.59L10 6l6 6-6 6z"/>
+                </svg>
+            </button>
         </div>
     </section>
 
     <footer>
         <p>&copy; 2024 My Website | All Rights Reserved</p>
     </footer>
+
+    <script>
+        const carousel = document.getElementById('carousel');
+
+        function scrollRight() {
+            carousel.scrollBy({ left: 300, behavior: 'smooth' });
+        }
+
+        function scrollLeft() {
+            carousel.scrollBy({ left: -300, behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
-
 
